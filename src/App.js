@@ -1,10 +1,13 @@
 import "./App.css";
+// import Nav from "./components/nav";
 // import Card from "./card";
+import Nav from "./components/nav";
+
 
 function App() {
   return (
     <div className="App">
-        Empieza tu app con Tailwind CSS 3.1.8 y React 18.0.0
+       <Nav/>
     </div>
     // <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     //   <h1>Tailwind CSS</h1>
