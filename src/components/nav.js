@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import Tabla from "../components/Tabla";
 import Search from "./Search";
 
 const user = {
@@ -29,14 +28,7 @@ function classNames(...classes) {
 export default function Nav() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
+      
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
@@ -45,8 +37,7 @@ export default function Nav() {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
+                      <img className="h-8 w-8"
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAIkklEQVR4nO1ba2xUxxX+zuza3cU40ABVgDxQguofVMTm2uYpMCROVdQG1MSJ3LLrBbVVKiqjWqwdIGq3rTH2miRVElRSEjBrSNSaCpIorRQTjCJcAngd44omqIS0BMWloSEB4128e+f0h220GN975+4DfnQ/ydLOzPnOnHPu3DszZ8ZAFllkkUUW/7+gW9nZ6qKGKboQBcxiJgkeD0besBVXWVI/kTwTg/Oj18PrL94qmzIagJ9ojROioJVg8RCIlwGYrkg9D6YOEnww7nAd2Hus+nKmbMxIAFaVNC4QLKrBWAHAlaK6CDG/wSxeCH3gP5oO+xKR1gCsKmlcQFJsJqAsnXoTcEgwb2rprns/XQrTEoBKbevkHOIgmH3p0mkCCWBnTq6z7tWjNV+kqixlY6uKti5mIV+D+vudLpwHZGUo/PSRVJSIVMheLbiOhTyEW+88ANwNiA7PnODaVJQ4kqMxebTxDQRsRopBTBGCCMtnTyt39va1dySjIKkAeLW8LQRsSIabCRCwONkg2A6AVwuuA1Bvl3czqB/ARQBRYHhBlIo2YPHsqeUXe/vaT9jkqcNTElxCEu8iuZFzmpj3sUMcdsRjJ3d9sPHzkYaKWYFcV17edEi5iCSVgbACwKQk+ogToWx3V22nKkE5AJXa1sk5kD2w+cFjxgkWvGlPV127KsdXFnDxZXclE9UA+Jad/gB8mpPrLFSdIpWf5Jzp5S8BWGzDkM9B7GsN19b0frboYxs89PzzcPxk38Gerxcs3HHHoPMyQSwAkKtInyB1/c6TfQffUhFWGgGrShoXCCmOqMoDCAPy+6Hw0+eMBCrmP+fOGxycyRADQjgG+weuXGg7FRgcS9arNVUB1KLYNwBIBi1oDfuPWQk6VbSRFJuh7vyfI7nOx9uO1kRGN3iLm0ohaQ0IyzAYv19COABAlzrcrnFRb3Gwk4C35SD9vrXXfxUA1ixsyo9fwxqwYu9DEMRcD6DcStDSqeGnr/RRIaB7IDqwpO1UoD+x3lPUVEyCtgPQVPQA3AegXjC6paAXwShW443SAppnNQosR4BgUa3YXZ9D4nuJzgcQEGe1vAaA18PWzEFTAWyTBCQ+eQL+zuBOAk1k4CEAd5pqAVcD+KG5jAmG9vOiD4Db0mYmT6jbv2ekWFHxR4f743/tArHHkmuNOBM91drlf3Wkwlf4/ERdxF4hwmMmvAGni+/a2Vl3xUjAdBkbBa2EivPAsVD3+r2JFe6zn/wuTc6DgIZE5wGgpefnX0avDfwAwIcm1HF6BI+a6TZfxxM9rGYibwDo+mD1FAeXA/RjNa41ZIy2jVU/NGvQK6aWkTD9EJoHgLHU0jrgo1C49vBIwVcWcBHjZQWeKqKtvf7/GLYyPjGns6kPhgFYXdQwBQqrPgbtT3z6en/eSgB3W/FswOXVGu81bpYzLfj3eksbDJfVhgHQhSiwNA0ACRy6QSHzGhWePYiasWp9hc9PBNE6K7ZkY18MA0Ak7lcxLSapZ+R3xfzn3Ayl18Yuqj3FzZsqZgWuL4d9hVtmsCP2JhRGqdAdhr4YrgOYMUHBsEhiDj8vHi+QiqtLmyBirne7xv3MqwW7AbglMB+KGWcGG/piaCyBx7P1QvFSYkGCJsPmmtUm7gKw3C5JEN9h2GbUwEy2E6aCEbfLud0wngYJhqunBNw4tIi/TNGejEAyGZ4smXwE8ZWC7rxKbevkkUL+JdeHAMbc0t5OEMjQF5NXQJ5VUe4gvWjk94tnqq8BdNyeeZmHdOiGvhgGwCHlaRXlxOKGaY8h9xrJ3i4IMvbFMADDScvzVsoJ8jGAr38wo9HIHgIu2LYyczgXOr7xv0aNFnsBUsiz0zdXacEVI6W2U4F+MH5hw8CMgnDjSnU0TANAgg8qdcK0MbG8u9u/A8B+FW6mwSDTbLRpAOIO1wEAN+X2RoMIJVVzmp9IqGGni6sASungcljXEQZ+CeCzJMhXnS5pmh02DcDeY9WXifkNlZ6Y+GVf4ZYZI+WdnXVXItGr3wFon5qtN4MI287lX13aGq79dSQ6UABgqx0+AwfMskGAQlLUW9Q8H4L/qtjn+yJ/YGnL4UD0Bh1Dae16KG+T6QyIqkNd6/+SWFsxKzDe7Rp3EcDX1NTw3FBXnem0rLTc9WrBdwEsU+oU6HC6eMXoyPvKAi55xf0kGE+CaBGA/FG8SyDqgMSeyAP3vdnW9oSe2OiZ3ZxHTn4bhCWKdrwTCtd+20pIKQC+OU3zJFEnVI/CCV0xR+y7rx/bZDAdMvkKG+9jkTOJBUnJ4t8zw19dCCAgx5JeXfLsPXFd/xMRSpT6B6QQYl7LifWWB6XKGx6vFtwB4Eeq8gC+AMEf6vLvSswY2UVVcbCSGb8F8A1VDgHbd4drf6ooqwZvacMk6M4e2E13Eb8HEr8JnfArTakjqNKCjzDxJjDZOY8EgHPxQb3wtb9tuGQtavN43Ks1LgJEB5JKetAZgPeBxHsxx7Xu0a/H6qKGKbojtxjMSwB+HMAD9vtATDAvtnOLzPae3zMnuJYIL9nljYHI8F8/hoZ3qvcJAaKnQl1+Wxlp2xcdevvaT8yeVu4ke0flYyEHQ4cuE5CONBrxr0Jdtc/apSV1R6i3r73jwWkPRwHVg5NMg5pC4dpnkmEmeUsMONl3sHP21PKLRHgEt++mWAxEa0Nhf1OyClK+KOktbioF0x8AzLAUTi8+JUKlnftAYyHlJxfqqjuek+vUAN6BoWusmYYkYHt8UH8wVeeBNN/r9WjNc4m5HoRMfRveEUI8o7LCU0VGLjZ7tOa5w5cTVgIYl6K6AQb2E/ELVhubZJDRm91rFjbl6xE8OnREzcsA3KNIPUfAIQa1O13yLastbSq4pf8y4y1tmCRZFDhYzJQS+UQ8HgCYqV8IXGGd/pHjcpxOxzX4LLLIIosssrDG/wBM3OyaGDUxAQAAAABJRU5ErkJggg=="
                         alt="Your Company"
                       />
