@@ -2,23 +2,24 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Tabla from "../components/Tabla";
+import Search from "./Search";
 
 const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  name: "Arling Holguin",
+  email: "hello@arling.pro",
+  imageUrl:"https://media-exp1.licdn.com/dms/image/C5603AQH-nrvGE91JoA/profile-displayphoto-shrink_200_200/0/1648692082224?e=1671667200&v=beta&t=3CjClqVsBrcfokO0Wzwwo-7con2VCk_JduTeiDQo5Lg",
 };
 const navigation = [
   { name: "CryptApp", href: "#", current: true },
-//   { name: "Team", href: "#", current: false },
-//   { name: "Projects", href: "#", current: false },
-//   { name: "Calendar", href: "#", current: false },
-//   { name: "Reports", href: "#", current: false },
+  //   { name: "Team", href: "#", current: false },
+  //   { name: "Projects", href: "#", current: false },
+  //   { name: "Calendar", href: "#", current: false },
+  //   { name: "Reports", href: "#", current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "Linkedin", href: "https://www.linkedin.com/in/arlin-holguin/" },
+  { name: "Portafolio", href: "https://arling.pro" },
+  { name: "GitHub", href: "https://github.com/ArlingHolguin/" },
 ];
 
 function classNames(...classes) {
@@ -205,15 +206,18 @@ export default function Nav() {
         </Disclosure>
 
         <header className="bg-white shadow">
-          <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
-            <h1 className=" text-left text-xl font-bold tracking-tight text-gray-900">
-              Dashboard
-            </h1>
+          <div className="grid md:flex justify-center items-center mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+            
+            <div>              
+              <div className="py-4 mb-8">
+                <Search/>
+              </div>
+            </div>
           </div>
         </header>
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <Tabla/>
+            <p className="text-xs">CrytoApp 2022</p>
           </div>
         </main>
       </div>
